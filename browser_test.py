@@ -1,9 +1,7 @@
 import asyncio
 from typing import List
 from pyppeteer import launch
-
-USERNAME = "username"
-PASSWORD = "password"
+import config
 
 async def main() -> List:
     ip_info = []
@@ -11,8 +9,8 @@ async def main() -> List:
     page = await browser.newPage()
     await page.goto("http://192.168.0.1")
     # login
-    await page.type("#txt_Username", USERNAME)
-    await page.type("#txt_Password", PASSWORD)
+    await page.type("#txt_Username", config.ROUTER_USERNAME)
+    await page.type("#txt_Password", config.ROUTER_PASSWORD)
     await page.keyboard.press("Enter")
     await page.waitForNavigation()
     await page.waitForSelector('li[name="subli_dhcpinfo"]')

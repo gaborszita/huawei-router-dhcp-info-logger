@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 from ip_info_getter import IpInfoGetter
 
 # This file prints out IP info to the console

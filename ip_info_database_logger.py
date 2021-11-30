@@ -27,7 +27,7 @@ except pyppeteer.errors.PyppeteerError:
     success = False
 
 
-cursor.execute("LOCK TABLES logs WRITE")
+cursor.execute("LOCK TABLES logs WRITE, logs_data WRITE")
 sql = ("SELECT AUTO_INCREMENT "
        "FROM information_schema.TABLES "
        "WHERE TABLE_SCHEMA='" + config.DB_DATABASE + "' AND "
@@ -38,7 +38,6 @@ log_id = result[0]
 sql = "INSERT INTO logs (time, success) VALUES (%s, %s)"
 val = (time_now, success)
 cursor.execute(sql, val)
-cursor.execute("UNLOCK TABLES")
 
 if success:    
     for row in ip_info:
@@ -56,6 +55,7 @@ else:
     pass
 
 db.commit()
+cursor.execute("UNLOCK TABLES")
 
 cursor.close()
 db.close()

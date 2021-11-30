@@ -43,5 +43,12 @@ class IpInfoGetter:
         await browser.close()
         return ip_info
 
+    # get_ip_info() returns an array of arrays. Format of the smaller arrays 
+    # in the big array:
+    # - Host Name
+    # - IP Address
+    # - MAC address
+    # - Remaining Lease Time
+    # - Device Type (dhcp client)
     def get_ip_info() -> List:
         return asyncio.get_event_loop().run_until_complete(IpInfoGetter.__get_ip_info_router_comm())

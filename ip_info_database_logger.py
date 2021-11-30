@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 
 import mysql.connector
+import config
 
 db = mysql.connector.connect(
-    host="host",
-    user="user",
-    password="password",
-    database="database"
+    host=config.DB_HOST,
+    user=config.DB_USERNAME,
+    password=config.DB_PASSWORD,
+    database=config.DB_DATABASE
 )
 
 cursor = db.cursor()

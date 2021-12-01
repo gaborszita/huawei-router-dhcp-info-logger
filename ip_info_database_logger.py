@@ -25,6 +25,16 @@ class IpInfoDatabaseLogger:
             success = True
         except pyppeteer.errors.PyppeteerError:
             success = False
+        except pyppeteer.errors.BrowserError:
+            success = False
+        except pyppeteer.errors.ElementHandleError:
+            success = False
+        except pyppeteer.errors.NetworkError:
+            success = False
+        except pyppeteer.errors.PageError:
+            success = False
+        except pyppeteer.errors.TimeoutError:
+            success = False
 
 
         cursor.execute("LOCK TABLES logs WRITE, logs_data WRITE")

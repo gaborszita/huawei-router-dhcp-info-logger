@@ -29,7 +29,7 @@ class IpInfoGetter:
             row = await row.JJeval("td", "(nodes => nodes.map(n => n.innerText))")
             row_data = []
             for i in range(len(row)):
-                if i==len(row)-1:
+                if i==len(row)-1 or row[0][-1]!="\t":
                     data = row[i].replace(u"\xa0", " ")
                     row_data.append(data)
                 else:

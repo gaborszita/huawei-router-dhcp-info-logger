@@ -1,4 +1,4 @@
-# Router DHCP info logger
+# Huawei router DHCP info logger
 
 Description:
 I had issues with my Huwaei HG8121H	router DHCP server assinging IP addresses. 

@@ -41,6 +41,15 @@ Setup instructions
    Base. It is a free and open-source software. You can open the 
    `view_dhcp_info.odb` file in Base and it already has two queries done 
    for you.
+   
+Explanation of files:
+- `ip_info_database_logger.py`: Logs DHCP info to the database.
+- `ip_info_getter.py`: Gets the DHCP info from the router using 
+   pyppeteer.
+- `ip_info_printer.py`: Prints out the DHCP info to the screen.
+- `ip_info_scheduled_logger.py`: Logs DHCP info to the database every `x` 
+   seconds, where `x` is the number of seconds set in `config.py`.
+- `view_dhcp_info.odb`: LibreOffice Base file for viewing DHCP info.
 
 Required packages:
 - pyppeteer, mysql-connector-python
